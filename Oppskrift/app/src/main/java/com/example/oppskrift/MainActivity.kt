@@ -6,6 +6,7 @@ import android.widget.Space
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -22,6 +23,8 @@ import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material.icons.outlined.Star
+import androidx.compose.material3.Button
+import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -29,7 +32,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.Green
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -55,55 +61,89 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Oppskrift(modifier: Modifier = Modifier){
-    Column (
-        modifier = Modifier
-            .padding(15.dp)
-
-
-
-        ){
-        Image(
-            painterResource(R.drawable.ivan_torres_mquqbmszggm_unsplash),
-            contentDescription = "Pizza",
-            modifier = Modifier.clip(RoundedCornerShape(10.dp))
-        )
-        Text(text = "Pizza",
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(10.dp),
-            fontSize = 30.sp,
-        )
-//        Icon(R.drawable.timer_fill0_wght400_grad0_opsz48, contentDescription = "Timer")
-        Row (
+    Card (modifier = Modifier
+        .padding(5.dp)
+    ){
+        Column(
             modifier = Modifier
-                .fillMaxSize(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-        ){
-            Box(modifier = Modifier ){
-                Row(modifier = Modifier) {
-                    Icon(Icons.Default.Refresh, contentDescription = "Timer")
-                    Spacer(modifier = Modifier.size(10.dp))
-                    Text(text = "45min")
-                }
-            }
-            Box(modifier = modifier){
-                Row(modifier = Modifier) {
-                    Icon(Icons.Filled.Favorite, contentDescription = "Heart")
-                    Icon(Icons.Filled.Favorite, contentDescription = "Heart")
-                    Icon(Icons.Filled.Favorite, contentDescription = "Heart")
-                    Icon(Icons.Filled.Favorite, contentDescription = "Heart")
-                    Icon(Icons.Outlined.FavoriteBorder , contentDescription = null)
-                    Spacer(modifier = Modifier.size(10.dp))
-                    Text(text = "4.0")
-                }
-            }
+                .padding(15.dp)
+        ) {
+            Image(
+                painterResource(id = R.drawable.ivan_torres_mquqbmszggm_unsplash),
+                contentDescription = stringResource(R.string.image_pizza),
+                modifier = Modifier.clip(RoundedCornerShape(10.dp))
+            )
+            Text(
+                text = "Pizza",
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(10.dp),
+                fontSize = 30.sp,
+            )
 
+//        Icon(Painter = R.drawable.timer_fill0_wght400_grad0_opsz48, contentDescription = stringResource(R.string.Icon_timer))
+            Row(
+                modifier = Modifier
+                    .fillMaxSize(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+            ) {
+                Box(modifier = Modifier) {
+                    Row(modifier = Modifier) {
+                        Icon(
+                            painterResource(id = R.drawable.timer_fill0_wght400_grad0_opsz48),
+                            contentDescription = stringResource(R.string.Icon_timer),
+                            modifier = Modifier.size(20.dp)
+                        )
+                        Spacer(
+                            modifier = Modifier.size(10.dp)
+
+                        )
+                        Text(text = stringResource(R.string._45_min))
+                    }
+                }
+                Box(modifier = modifier) {
+                    Row(
+                    ) {
+                        Icon(
+                            painterResource(id = R.drawable.star_fill),
+                            contentDescription = stringResource(R.string.Icon_heart),
+                            modifier = Modifier
+                                .size(20.dp)
+                        )
+                        Icon(
+                            painterResource(id = R.drawable.star_fill),
+                            contentDescription = stringResource(R.string.Icon_heart),
+                            modifier = Modifier
+                                .size(20.dp)
+                        )
+                        Icon(
+                            painterResource(id = R.drawable.star_fill),
+                            contentDescription = stringResource(R.string.Icon_heart),
+                            modifier = Modifier
+                                .size(20.dp)
+                        )
+                        Icon(
+                            painterResource(id = R.drawable.star_fill),
+                            contentDescription = stringResource(R.string.Icon_heart),
+                            modifier = Modifier
+                                .size(20.dp)
+                        )
+
+                        Icon(
+                            painterResource(id = R.drawable.star),
+                            contentDescription = stringResource(R.string.Icon_heart),
+                            modifier = Modifier
+                                .size(20.dp)
+                        )
+                        Spacer(modifier = Modifier.size(10.dp))
+                        Text(text = stringResource(R.string.Rating_value)
+                        )
+                    }
+                }
+            }
+//        Icon(Icons.Default.Star, contentDescription = null)
 
         }
-
-
-
     }
-    
     
 }
 
