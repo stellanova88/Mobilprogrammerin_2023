@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">Oppskrift</string>
-    <string name="Icon_timer">Timer</string>
-    <string name="Icon_heart">Heart</string>
-    <string name="like_button">Like button</string>
-    <string name="image_pizza">Pizza</string>
-    <string name="Rating_value">4.0</string>
-    <string name="_45_min">45 min</string>
-</resources>
